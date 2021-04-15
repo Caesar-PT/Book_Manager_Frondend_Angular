@@ -1,0 +1,29 @@
+<h1>List products</h1>
+
+<button type="button" class="btn btn-primary" [routerLink]="'/create'">Create new book</button>
+<hr>
+<table class="table table-bordered" style="text-align: center">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Title</th>
+    <th scope="col">Author</th>
+    <th scope="col">Description</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+
+  <tr *ngFor="let b of books">
+    <td>{{b.id}}</td>
+    <td><a [routerLink]="'/books/' + b.id">{{b.title}}</a></td>
+    <td>{{b.author}}</td>
+    <td>{{b.description}}</td>
+    <td>
+      <button type="button" class="btn btn-warning" [routerLink]="'/books/edit/'+ b.id">Edit</button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-danger" [routerLink]="'/books/delete/' + b.id">Delete</button>
+    </td>
+  </tr>
+</table>
